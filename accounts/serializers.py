@@ -6,7 +6,8 @@ from .models import User
 class CustomUserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
-        fields = "__all__"
+        exclude = ("email_verified_at", "date_joined", "last_login",
+                   "is_superuser", "is_active", "is_staff", "level",)
 
 
 class UserRegisterationSerializer(serializers.ModelSerializer):
