@@ -70,7 +70,7 @@ class User(AbstractBaseUser, PermissionsMixin):
 
     @property
     def role_code_display(self):
-        return self.role.role_name if hasattr(self, 'role') else 'کاربر'
+        return self.role.role_name if hasattr(self, 'role') else 'user'
 
     @property
     def has_role(self):

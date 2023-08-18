@@ -27,6 +27,7 @@ urlpatterns = [
     path('album/', include('album.urls')),
     path('acl/', include('acl.urls')),
     path('story/', include('story.urls')),
+    path('playlist/', include('playlist.urls')),
     path('profiles/', include('profiles.urls')),
     path('api/token/', jwt_views.TokenObtainPairView.as_view(),
          name='token_obtain_pair'),

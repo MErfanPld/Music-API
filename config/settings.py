@@ -53,6 +53,7 @@ INSTALLED_APPS = [
     'story',
     'album',
     'profiles',
+    'playlist',
 ]
 
 MIDDLEWARE = [
