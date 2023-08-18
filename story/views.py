@@ -34,10 +34,3 @@ class StoryDestroyAPIView(DestroyAPIView):
 
     def get_queryset(self):
         return Story.objects.filter(user=self.request.user)
-
-
-class UserStoryListAPIView(ListAPIView):
-    serializer_class = serializers.StorySerializer
-
-    def get_queryset(self):
-        return Story.objects.filter(user=self.request.user)
