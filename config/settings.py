@@ -52,6 +52,7 @@ INSTALLED_APPS = [
     'acl',
     'story',
     'album',
+    'profiles',
 ]
 
 MIDDLEWARE = [

@@ -7,7 +7,7 @@ from django.utils.html import format_html
 
 @admin.register(Album)
 class AlbumAdmin(admin.ModelAdmin):
-    list_display = ["title", "slug", "likeCount", "viewCount",
+    list_display = ["title", "slug", "user","likeCount", "viewCount",
                     "playCount", "status", "image_tag", "created_at", "updated_at"]
     readonly_fields = ['created_at', 'updated_at',
                        'likeCount', 'viewCount', 'playCount']

@@ -18,6 +18,8 @@ def upload_image(instance, filename):
 class Album(models.Model):
     title = models.CharField(max_length=255)
     slug = models.CharField(unique=True, max_length=50)
+    user = models.ForeignKey(
+        User, on_delete=models.CASCADE, null=True, blank=True, related_name='user_album')
     viewCount = models.IntegerField(default=0)
     likeCount = models.IntegerField(default=0)
     playCount = models.IntegerField(default=0)
