@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from rest_framework.generics import ListAPIView, CreateAPIView, RetrieveAPIView, UpdateAPIView, DestroyAPIView
-
+from rest_framework.views import APIView
 from .models import Story
 from . import serializers
 
@@ -8,8 +8,8 @@ from . import serializers
 # Create your views here.
 
 class StoryListAPIView(ListAPIView):
-    queryset = Story.objects.all()
     serializer_class = serializers.StorySerializer
+    queryset = Story.objects.all()
 
 
 class StoryCreateAPIView(CreateAPIView):
@@ -23,10 +23,21 @@ class StoryRetrieveAPIView(RetrieveAPIView):
 
 
 class StoryUpdateAPIView(UpdateAPIView):
-    queryset = Story.objects.all()
     serializer_class = serializers.StorySerializer
+
+    def get_queryset(self):
+        return Story.objects.filter(user=self.request.user)
 
 
 class StoryDestroyAPIView(DestroyAPIView):
-    queryset = Story.objects.all()
     serializer_class = serializers.StorySerializer
+
+    def get_queryset(self):
+        return Story.objects.filter(user=self.request.user)
+
+
+class UserStoryListAPIView(ListAPIView):
+    serializer_class = serializers.StorySerializer
+
+    def get_queryset(self):
+        return Story.objects.filter(user=self.request.user)
