@@ -3,6 +3,7 @@ from django.contrib.auth import get_user_model
 import time
 from django.urls import reverse
 from django.utils.text import slugify
+from album.models import Album
 
 # Create your models here.
 
@@ -16,7 +17,8 @@ def upload_image(instance, filename):
 
 
 def upload_audio_file(instance, filename):
-    path = 'uploads/' + 'music/' + 'audio' +slugify(instance.singer, allow_unicode=True)
+    path = 'uploads/' + 'music/' + 'audio' + \
+        slugify(instance.singer, allow_unicode=True)
     name = str(time.time()) + '-' + str(instance.singer) + '-' + filename
     return path + '/' + name
 
@@ -26,6 +28,8 @@ class Music(models.Model):
     slug = models.CharField(unique=True, max_length=50)
     singer = models.ForeignKey(
         User, on_delete=models.CASCADE, related_name='singer_music')
+    album = models.ForeignKey(Album,  blank=True, null=True,
+                              on_delete=models.CASCADE, related_name='album_music')
     audio_file = models.FileField(
         upload_to=upload_audio_file, blank=True, null=True)
     audio_link = models.CharField(max_length=200, blank=True, null=True)

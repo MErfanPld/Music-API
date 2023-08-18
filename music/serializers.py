@@ -6,5 +6,5 @@ from .models import Music
 class MusicSerializer(serializers.ModelSerializer):
     class Meta:
         model = Music
-        fields = ["id", "title", "slug", "singer", "audio_file",
+        fields = ["id", "title", "slug", "singer", "album","audio_file",
                   "audio_link", "status", "cover", "viewCount", "likeCount", "playCount"]

@@ -15,28 +15,28 @@ class MusicListAPIView(ListAPIView):
     serializer_class = serializers.MusicSerializer
 
 
-class MusicCreateAPIView(PermissionMixin, CreateAPIView):
+class MusicCreateAPIView(CreateAPIView):
     permission_classes = [RestPermissionMixin]
     permissions = ['music_create']
     queryset = Music.objects.filter(status=True)
     serializer_class = serializers.MusicSerializer
 
 
-class MusicRetrieveAPIView(PermissionMixin, RetrieveAPIView):
+class MusicRetrieveAPIView(RetrieveAPIView):
     permission_classes = [RestPermissionMixin]
     permissions = ['music_detail']
     queryset = Music.objects.filter(status=True)
     serializer_class = serializers.MusicSerializer
 
 
-class MusicUpdateAPIView(PermissionMixin, UpdateAPIView):
+class MusicUpdateAPIView(UpdateAPIView):
     permission_classes = [RestPermissionMixin]
     permissions = ['music_edit']
     queryset = Music.objects.filter(status=True)
     serializer_class = serializers.MusicSerializer
 
 
-class MusicDestroyAPIView(PermissionMixin, DestroyAPIView):
+class MusicDestroyAPIView(DestroyAPIView):
     permission_classes = [RestPermissionMixin]
     permissions = ['music_delete']
     queryset = Music.objects.filter(status=True)
