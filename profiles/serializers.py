@@ -3,6 +3,7 @@ from django.contrib.auth import authenticate
 from music.models import *
 from album.models import *
 from story.models import *
+from playlist.models import *
 
 
 class ProfileUserMusicSerializer(serializers.ModelSerializer):
@@ -23,3 +24,8 @@ class ProfileUserStorySerializer(serializers.ModelSerializer):
     class Meta:
         model = Story
         fields = ["id", "user", "file"]
+
+class ProfileUserPlaylistSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Playlist
+        fields = "__all__"
