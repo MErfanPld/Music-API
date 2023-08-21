@@ -39,7 +39,7 @@ class Music(models.Model):
     status = models.BooleanField(default=False)
     cover = models.ImageField(upload_to=upload_image, null=True, blank=True)
 
-    created_at = models.DateTimeField(auto_now_add=True)
+    created_at = models.DateTimeField()
     updated_at = models.DateTimeField(auto_now=True)
 
     def get_absolute_url(self):

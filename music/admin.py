@@ -9,8 +9,7 @@ from django.utils.html import format_html
 class MusicAdmin(admin.ModelAdmin):
     list_display = ["title", "slug", "singer", "likeCount", "viewCount",
                     "playCount", "status", "image_tag", "created_at", "updated_at"]
-    readonly_fields = ['created_at', 'updated_at',
-                       'likeCount', 'viewCount', 'playCount']
+    readonly_fields = ['likeCount', 'viewCount', 'playCount']
 
     def image_tag(self, obj):
         if obj.cover:
