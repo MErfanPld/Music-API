@@ -56,6 +56,7 @@ INSTALLED_APPS = [
     'album',
     'profiles',
     'playlist',
+    'vote',
 ]
 
 MIDDLEWARE = [
