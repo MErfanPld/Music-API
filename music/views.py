@@ -1,12 +1,13 @@
 from django.shortcuts import render
 from rest_framework.generics import ListAPIView, CreateAPIView, RetrieveAPIView, UpdateAPIView, DestroyAPIView
-
+from rest_framework.views import APIView
 from acl.mixins import *
 from .models import Music
 from . import serializers
 from acl.rest_mixin import *
 
 # Create your views here.
+
 
 class MusicListAPIView(ListAPIView):
     permission_classes = [RestPermissionMixin]
@@ -41,3 +42,7 @@ class MusicDestroyAPIView(DestroyAPIView):
     permissions = ['music_delete']
     queryset = Music.objects.filter(status=True)
     serializer_class = serializers.MusicSerializer
+
+class MusicSpecialAPIView(APIView):
+    def get(self, resquest):
+        pass

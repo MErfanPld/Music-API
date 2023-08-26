@@ -7,7 +7,7 @@ from django.utils.html import format_html
 
 @admin.register(Music)
 class MusicAdmin(admin.ModelAdmin):
-    list_display = ["title", "slug", "singer", "likeCount", "viewCount",
+    list_display = ["title", "slug", "singer", "is_special_music", "likeCount", "viewCount",
                     "playCount", "status", "image_tag", "created_at", "updated_at"]
     readonly_fields = ['likeCount', 'viewCount', 'playCount']
 

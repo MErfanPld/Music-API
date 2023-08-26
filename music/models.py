@@ -37,6 +37,7 @@ class Music(models.Model):
     likeCount = models.IntegerField(default=0)
     playCount = models.IntegerField(default=0)
     status = models.BooleanField(default=False)
+    is_special_music = models.BooleanField(default=False)
     cover = models.ImageField(upload_to=upload_image, null=True, blank=True)
 
     created_at = models.DateTimeField()

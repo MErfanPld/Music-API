@@ -27,6 +27,7 @@ urlpatterns = [
     path('album/', include('album.urls')),
     path('acl/', include('acl.urls')),
     path('vote/', include('vote.urls')),
+    path('special/', include('special_user.urls')),
     path('story/', include('story.urls')),
     path('playlist/', include('playlist.urls')),
     path('profiles/', include('profiles.urls')),

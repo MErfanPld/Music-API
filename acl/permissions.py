@@ -23,7 +23,6 @@ ALBUM_PERMISSIONS = {
 }
 PERMISSIONS.append(ALBUM_PERMISSIONS)
 
-
 class ROLE_CODES:
     USER = "user"
     SINGER = "singer"
