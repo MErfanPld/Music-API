@@ -99,3 +99,6 @@ class User(AbstractBaseUser, PermissionsMixin):
         if permission in self.permissions:
             return True
         return False
+
+    def get_special(self):
+        return self.special.filter(status=True).first()

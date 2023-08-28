@@ -18,11 +18,19 @@ class PlanMusic(models.Model):
 
 
 class Special(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='special')
     plan_music = models.ForeignKey(PlanMusic, on_delete=models.CASCADE)
 
     created_at = models.DateTimeField(auto_now_add=True)
     expires_at = models.DateTimeField()
 
+    status = models.BooleanField(default=False, null=True, blank=True)
+
     def __str__(self):
-        return f'{self.user.get_username}, {self.plan_music},{self.expires_at}'
+        return f'{self.user.get_username}, {self.plan_music}'
+
+    def save(self, *args, **kwargs):
+        if self.user and self.status:
+            self.user.special.update(status=False)
+
+        return super().save(*args, **kwargs)
