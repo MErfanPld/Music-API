@@ -1,4 +1,5 @@
 /venv
 .env
+todo.txt
 /uploads
 /.idea
