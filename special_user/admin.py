@@ -6,7 +6,7 @@ from .models import Special, PlanMusic
 
 @admin.register(Special)
 class SpecialAdmin(admin.ModelAdmin):
-    list_display = ["user", "plan_music","expires_at"]
+    list_display = ["user", "plan_music","expires_at","status"]
     readonly_fields = ["created_at"]
 
 
