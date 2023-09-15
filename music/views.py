@@ -2,6 +2,8 @@ from django.shortcuts import render
 from rest_framework.generics import ListAPIView, CreateAPIView, RetrieveAPIView, UpdateAPIView, DestroyAPIView
 from rest_framework.views import APIView
 from rest_framework import status
+import django_filters.rest_framework
+from rest_framework import filters
 from rest_framework.response import Response
 from acl.mixins import *
 from .models import Music
@@ -14,6 +16,8 @@ from acl.rest_mixin import *
 class MusicListAPIView(ListAPIView):
     permission_classes = [RestPermissionMixin]
     permissions = ['music_list']
+    search_fields = ["title","slug"]
+    filter_backends = [filters.SearchFilter,filters.OrderingFilter]
     queryset = Music.objects.filter(status=True)
     serializer_class = serializers.MusicSerializer
 
